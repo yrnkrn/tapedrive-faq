@@ -1,0 +1,344 @@
+Newsgroups: comp.sys.ibm.pc.hardware.storage,comp.sys.ibm.pc.hardware.misc
+
+
+Archive-name: tapedrive-faq
+Last-modified: 1/14/1995
+
+
+This a document which answers several questions about tape drives.
+Information about SCSI drives is not included here since you can find all you
+want to know at the comp.periphs.scsi FAQ.
+
+My thanks to all who mailed me with suggestions and information.
+
+Please feel free to correct/add anything, preferably by email.
+
+Yaron
+
+
+[1] QIC40/80
+
+[1-1] What is QIC80, QIC40?
+[1-2] Are those 250MB tape really 250MB?
+[1-3] I have two floppies. Can I add a tape drive?
+[1-4] How fast is the tape? Will a dedicated controller speed it?
+[1-5] Do I need a parallel interface tape?
+[1-6] Review of several backup software.
+[1-7] Are Colorado/Conner/Archive/... compatible with each other?
+[1-8] How does the drive/software know how long is the tape?
+
+[2] QIC11,24,120,150,320,525,1000,2GB,10GB
+
+[2-1] What are all those QIC?
+[2-2] R/W Compatibility chart for QIC
+
+[9] Names and Addresses
+
+[9-1] QIC
+[9-2] Archive=Maynard
+[9-3] Colorado Memory Systems
+[9-4] Iomega
+[9-5] Irwin
+[9-6] Mountain
+[9-7] Wangtek
+
+
+
+Subject: [1-1] What is QIC80, QIC40?
+
+QIC stands for Quarter-Inch Cartridge. QIC80 is the standard for 80MB tapes,
+QIC40 for 40MB tapes. Both standard allows for extended length cassettes of
+300ft which gives 120MB and 60MB respectively.
+
+
+
+Subject: [1-2] Are those 250MB tape really 250MB?
+
+No. It is 120MB. All makers of tape drives now state the *compressed*
+capacity of the drives assuming 2:1 compression (1.4:1 more typical):
+
+         stated     real
+Name     capacity   capacity   standard   tape length         # tracks
+
+DC2000    80MB       40MB      QIC40      200ft (normal)      15
+DC2060   120MB       60MB      QIC40      300ft (extended)    15
+DC2080   160MB       80MB      QIC80      200ft               28
+DC2120   250MB      120MB      QIC80      300ft               28
+DC????   340MB      170MB      QIC80      425ft (extra ext.)  28
+
+For all the recording density is 12500 ftpi; max tape speed is 90 ips.
+
+
+
+
+Subject: [1-3] I have two floppies. Can I add a tape drive?
+
+It depends. On all modern tape drives: yes. Some old tape drives cannot do
+this (my old Jumbo). If you have one of this you will have to buy either a
+4-floppy controller or a dedicated tape controller.
+
+
+
+Subject: [1-4] How fast is the tape? Will a dedicated controller speed it?
+
+The tape connected through a floppy interface is limited to the floppy speed.
+On ATs 500Kbit/S. On old XT 250Kbit/S. With card support for 2.88MB floopy,
+1Mbit/S. Many of the newer cards support this transfer rate.
+
+If the card operate at 500Kbit/S, a dedicated controller card will speed up
+the tape by two. In many cases, those cards do hardware compression, helping
+even more.
+
+
+
+Subject: [1-5] Do I need a parallel interface tape?
+
+This tape is used usually for backing up several computers. It needs extrenal
+power supply. It is more expensive than an internal drive.
+
+
+
+Subject: [1-6] Review of several backup software.
+
+ JUMBO TAPE
+ ----------
+
+Small. Not many features but does the work. Seems to work only with
+colorados drives. Latest version is 4.03. Can be found by archie jumbo403.zip.
+From "Stan Faullin":
+
+Useful DOS program.  Has very basic Backup (total, modified, selected), 
+Restore, Compare, Erase and Format functions.  Some versions come with a 
+Windows scheduler, but it will NOT run in the background in a DOS window.  The 
+compression scheme used in some previous versions is NOT compatible with their 
+latest release, so you may not be able to read backups made with version 3.x 
+with version 4.x.  Separate versions of this software are available for their 
+internal model or the parallel port model.
+
+Windows:
+
+The Lite version supports both parallel port versions and internal versions.  
+The only Windows backup program for a parallel port device, but only supports 
+the Colorado Trakker unit.  Can run in the background. Can be found by archie,
+cbwlite.exe.
+
+From "gregb@oclflt.den.mmc.com (gregb)":
+
+CMS Trakker 250 is supplied with a "generic" software package:
+it performs backup, restore, selective backup & restore, compression,
+compare. It works with DOS and Windows 3.1. 
+For an additional $49.95 ($39?) you can purchase their fancier version.
+
+
+ Central-Point backup
+ --------------------
+
+Big. Many many features. Confusing directory selections. Works with
+most drives.
+
+
+ Conner Basic 1.0
+ ----------------
+
+From "Moshe Braner   braner@emba.uvm.edu":
+
+useless -- only backs up entire drive.
+
+ Conner Basic 1.1
+ ----------------
+
+From: pjk@netcom.com (Phil Koenig)
+
+If you got the low-power backup software bundled in -- Conner Backup
+Basics -- and it is V1.0, you are entitled to a free upgrade from Conner.
+The new version has an only slightly better addendum to the manual, but
+the software now is about as flexible as most users would want -- partial
+backup and restore by directory or file, etc.  It has worked well for us,
+and I recommend that you ask for your copy.
+
+From: dmiller@im.lcs.mit.edu (Dick and Jill Miller)
+
+I emphasize that v1.1 of Conner Backup Basics fixes many of the prior
+problems, although its prompts, on-line help and printed documentation 
+still deserve improvement.
+
+ Conner Exec
+ -----------
+
+From "Moshe Braner   braner@emba.uvm.edu":
+
+Very large (2.5 megs for DOS version, windows version even larger).
+Did not work with my parallel-port Conner 250meg QIC-80 drive.
+
+ QICstream==Conner "Simply Safe Software Backup Basics version 3.0P"
+ -------------------------------------------------------------------
+
+Small and works fine. Works with parallel port Conner drive.
+
+
+ Symantec Norton Backup
+ ----------------------
+
+Is included with Norton Desktop for Windows, which is a much better deal than 
+purchasing Norton Backup for Windows alone.
+
+
+ Symantec Norton Backup for Windows
+ ----------------------------------
+
+
+ GNU-Tar
+ -------
+
+Can be used with a proper driver??
+
+
+
+
+Subject: [1-7] Are Colorado/Conner/Archive/... compatible with each other?
+
+If you use the same software: Yes. If you want to use different software,
+turn compression off. Compression is done in software on those drives and
+not compatible.
+
+
+
+Subject: [1-8] How does the drive/software know how long is the tape?
+
+The magnetic tape has holes in it. Inside the cassette enclousre there is
+a small mirror. The drive sends an IR beam through it. Near the end of tape
+the drive recieves it. If the IR reciever is dusted, the drive may 'reel off'
+the cassette.
+
+
+
+Subject: [2-1] What are all those QIC?
+
+(Thanks to Karl-Peter Huestegge and Jan Christiaan van Winkel)
+
+QIC-11 is not an Industry Standard and there exist some incompatible
+versions.
+
+ Standard      Capacity      Tracks   Speed  Rec-density Flux-Trans Cartridges
+ ----------------------------------------------------------------------------
+ QIC-11     15/30MB (300ft)     4/9   90ips
+            20/40MB (450ft)     4/9   90ips               6400ftpi  DC300XL
+                                                         10000ftpi  DC300XLP
+            27/60MB (600ft)     4/9   90ips              10000ftpi  DC600A
+
+ QIC-24     45MB (450ft/137m)    9    90ips    8000bpi   10000ftpi
+            55MB (555ft/169m)    9    90ips    8000bpi   10000ftpi
+            60MB (600ft/183m)    9    90ips    8000bpi   10000ftpi  DC600A
+
+ QIC-120   125MB (600ft/183m)    15   72ips   10000bpi   12500ftpi  DC600A
+
+ QIC-150   155MB (600ft/183m)    18   72ips   10000bpi   12500ftpi  DC600XTD
+                                                                    DC6150
+ QIC-150   250MB (1000ft/305m)   18   72ips   10000bpi   12500ftpi
+
+ QIC-320   320MB (600ft/183m)    26   72ips   16000bpi   20000ftpi  DC6320
+
+ QIC-525   525MB (1000ft/305m)   26   72ips   16000bpi   20000ftpi  DC6525
+
+* QIC-1000  1000MB (760ft)
+
+* QIC-2GB
+
+* QIC-10GB
+
+
+
+
+Subject: [2-2] R/W Compatibility chart for QIC
+
+ (The left column should be read: "Tape drives designed for the QIC-???
+  standard *should* be able to read/write the following Tape formats:".)
+
+ TAPE-DRIVES     |                     Tape - Formats                      |
+ designed for:   | QIC-11 | QIC-24 | QIC-120 | QIC-150 | QIC-320 | QIC-525 |
+ ----------------|--------|--------|---------|---------|---------|---------|
+ QIC-11          |  R  W  |        |         |         |         |         |
+ QIC-24          |  R  W  | R   W  |  R      |         |         |         |
+ QIC-120         |  R  -  | R   -  |  R   W  |  R      |         |         |
+ QIC-150         |  R  -  | R   -  |  R   W  |  R   W  |         |         |
+ QIC-320         |  R  -  | R   -  |  R   W  |  R   W  |  R   W  |  ?   ?  |
+ QIC-525         |  R     | R      |  R   W  |  R   W  |  R   W  |  R   W  |
+ ---------------------------------------------------------------------------
+
+
+
+
+[9-1] QIC
+
+ Quarter-Inch Cartridge Drive Standards, Inc.
+ 311 East Carrillo Street
+ Santa Barbara, California 93101
+ Telephone (805) 963-3853
+ Fax       (805) 962-1541
+
+
+
+[9-2] Archive=Maynard
+
+ Costumer support, from 8:30 am to 8:00 pm EST
+        800-227-6296
+        407-263-3500
+ BBS    407-263-3502 (300/1200/2400)
+        407-263-3662 (9600/14400)
+
+
+
+[9-3] Colorado Memory Systems
+
+ Voicemail support               303 635-1500
+ BBS                             303 635-0650
+ FAXback service                 800 368-9673
+ Tech Support                    303 635-1501
+ Phone (United Kingdom)          44-344-773 100
+ FAX (United Kingdom)            44-344-763 637
+ BBS (United Kingdom)            44-344-763 216
+
+These numbers may be uncorrect:
+
+ Product Information/Purchases . 800-845-7905
+ DOS Computers: Hardware and
+ Software questions ............ 800-845-7906
+ UNIX/XENIX Computers:
+ Hardware/Software questions ... 800-845-7908
+ Tech Support .................. 800-432-5858
+
+
+
+[9-4] Iomega
+ Tech Support                   800-456-5522
+
+
+
+[9-5] Irwin
+ Tech Support                   800-412-1879
+
+
+
+[9-6] Mountain
+
+ General                        800-458-0300
+ Tech Support                   408-438-7897
+ BBS                            408-438-2665
+
+
+
+[9-7] Wangtek
+
+ Voice                          805-583-5255
+ Fax                            805-582-8249
+
+
+
+
+
+
+
+---------------------------------------------------------------------------
+To correct/add/argue, Please email:
+yak@techunix.technion.ac.il
+
